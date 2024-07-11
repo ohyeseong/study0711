@@ -1,0 +1,86 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul, li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    background-color: yellowgreen;
+    color: rgb(0, 59, 0);
+    height: 100%;
+}
+
+.wrap{
+    width: 800px;
+    height: 100%;
+    margin: 50px auto;
+    box-shadow: 4px 4px 10px rgb(63, 63, 63);
+}
+
+.ninja{}
+.ninja .tt{
+    background-color: rgb(225, 255, 240);
+    position: relative;
+}
+
+/* 이미지 가려주기(1) */
+.ninja .tt img{ 
+    position: absolute;
+    bottom: 0;
+    left: -100px;
+    display: none;
+}
+
+.ninja .tt h2{
+    height: 60px;
+    background-color: #f1f1f1;
+    line-height: 60px;
+    text-align: right;
+    padding-right: 20px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    background-image: url(../source/sprite.png);
+    background-repeat: no-repeat;
+}
+
+/* addClass나 removeClass를 걸어주기 위해 미리 만듬 */
+.ninja .tt h2.on{
+    background-position: left bottom;
+}
+
+.ninja .tt h2:hover{
+    background-color: white;
+}
+
+/* 글 내용 가려주기(1-1) */
+.ninja .tt p{
+    padding: 20px 20px 20px 350px;
+    text-align: right;
+    line-height: 1.7;
+    display: none;
+}
+
+.ninja .blue h2.on{
+    color: blue;
+}
+
+.ninja .purple h2.on{
+    color: purple;
+}
+
+.ninja .red h2.on{
+    color: red;
+}
+
+.ninja .yellow h2.on{
+    color: rgb(250, 150, 0);
+}

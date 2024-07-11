@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script lang="java">
+        $(document).ready(function(){
+            $(".test img").draggable({
+                stop:function(){
+                    $(this).animate({top:"0",left:"0",width:"+=50px"}, 500, "easeOutBack");
+                }
+            })// .test img.draggable
+        })// jQuery 끝
+    </script>
+
+    <style type="text/css">
+        .test{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <img src="source/icon01.png" alt="ico1">
+    </div>
+</body>
+</html>

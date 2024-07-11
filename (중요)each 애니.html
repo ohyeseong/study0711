@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script lang="java">
+        $(document).ready(function(){
+            // 처음에 실행되면 나타나도록(2)
+            $(".logo").delay(1000).fadeIn();
+
+            // logo 클릭시 캐릭터 이미지가 내려왔다 올라가게 toggleClass로 작업(3)
+            $(".logo").click(function(){
+
+                $(".box img").each(function(i){
+                    $(this).delay(i * 500).toggleClass("drap", 1500, "easeInOutBounce");
+                })// .box img.each
+
+                // 이미지가 다시 올라가면 글자색이 원레대로 돌아오게(5)
+                $(".box h1").text("Super Mario").css({"color":"gray"});
+                
+            })// .logo.click
+
+            // 이미지 클릭시 글자와 색이 바뀌는 작업(4)
+            $(".box img").click(function(){
+
+                var txt = $(this).attr("alt");
+                var col = $(this).attr("data-color");
+                
+                $(".box h1").text(txt).css({"color":col});
+
+            })// .box img.click
+        })// jQuery 끝
+    </script>
+
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            font-family: "Archivo Black", sans-serif;
+            text-align: center;
+            padding-top: 5%;
+        }
+
+        .box{
+            height: 400px;
+            /* border: 1px solid red; */
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+
+        .box h1{
+            font-size: 100px;
+            color: gray;
+            height: 200px;
+        }
+
+        .box img{
+            position: relative;
+            top: -1500px;
+            opacity: 0;
+        }
+
+        /* addClass와 removeClass를 위한 작업(1) */
+        .box img.drap{
+            top: 0;
+            opacity: 1;
+        }
+
+        .logo{
+            display: none;
+        }
+
+        img{
+            vertical-align: bottom;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img src="source/logo.png" alt="log" class="logo">
+
+    <div class="box">
+        <h1>Super Mario</h1>
+        <img src="source/icon01.png" alt="Mario" data-color="red">
+        <img src="source/icon02.png" alt="Luigi" data-color="green">
+        <img src="source/icon03.png" alt="Toad" data-color="yellow">
+    </div>
+</body>
+</html>

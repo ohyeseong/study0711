@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script lang="java">
+        $(document).ready(function(){
+
+            $(".menu li").each(function(i){
+
+                var bg_col = $(this).find("a").attr("bg");
+                $(this).find("a").css({"background":bg_col});
+
+            })// .menu li.each
+
+            $(".menu li a").css({"margin-top":"-200px"});
+
+            $(".menu li a").hover(function(){
+                $(this).stop().animate({"margin-top":"0"}, 300)
+            }, function(){
+                $(this).stop().animate({"margin-top":"-200px"}, 300)
+            })
+        })// jQuery 끝
+    </script>
+
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, li{
+            list-style: none;
+        }
+
+        .menu{
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu li{
+            
+        }
+
+        .menu li a{
+            display: block;
+            padding: 150px 10px 20px 10px;
+            border-radius: 0 0 20px 20px;
+            color: white;
+            width: 100px;
+            border: 1px solid red;
+            margin: 20px;
+            font-weight: bold;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li><a href="#" bg="red">menu1</a></li>
+        <li><a href="#" bg="yellow">menu2</a></li>
+        <li><a href="#" bg="blue">menu3</a></li>
+        <li><a href="#" bg="green">menu4</a></li>
+        <li><a href="#" bg="indigo">menu5</a></li>
+        <li><a href="#" bg="gray">menu6</a></li>
+        <li><a href="#" bg="purple">menu7</a></li>
+    </ul>
+</body>
+</html>

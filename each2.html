@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script lang="java">
+        $(document).ready(function(){
+
+            // each함수값을 각각의 태그한테 적용하기 전에 
+            // 각각의 태그한테 속성값을 미리 달아둬야 함
+
+            $(".color_picker div").each(function(n){
+                var bg = $(this).text();
+                console.log(bg);
+
+                $(this).css({"background-color":bg});
+            })// .color_picker div.each
+
+            $(".color_picker div").click(function(){
+                var bg = $(this).text();
+                $("body").animate({"background-color":bg}, 1000);
+            })// .color_picker div.click
+
+            $(".color div").each(function(j){
+                var col = $(this).attr("data");
+                // attr을 속성인데 ()안에 src인지 href인지 알게끔 "src","href"로 표기해야함
+                console.log(col);
+
+                $(this).css({"background-color":col});
+            })
+
+            $(".color div").click(function(){
+                var col = $(this).attr("data");
+                $("body").animate({"background-color": col},500);
+            })
+        })// jQuery 끝
+    </script>
+
+    <style type="text/css">
+        body{
+            background-color: rgb(30, 0, 58);
+            padding: 50px;
+        }
+
+        .color_picker div{
+            width: 80px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            display: inline-block;
+            margin-right: 20px;
+            cursor: pointer;
+            border: 1px solid white;
+        }
+
+        .color{
+            margin-top: 100px;
+        }
+
+        .color div{
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            border-radius: 20px;
+            cursor: pointer;
+            border: 1px solid white;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 100px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>배경 색 변경하기</h1>
+    
+    <div class="color_picker">
+        <div class="red">red</div>
+        <div class="blue">blue</div>
+        <div class="green">green</div>
+        <div class="yellow">yellow</div>
+        <div class="black">black</div>
+        <div class="gray">gray</div>
+    </div><!-- color_picker -->
+
+    <div class="color">
+        <div data="red">빨강</div>
+        <div data="yellow">노랑</div>
+        <div data="pink">핑크</div>
+        <div data="blue">파랑</div>
+        <div data="green">초록</div>
+        <div data="black">검정</div>
+    </div><!-- color -->
+</body>
+</html>

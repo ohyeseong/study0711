@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script lang="java">
+        $(document).ready(function(){
+
+            $(".menu li").each(function(i){
+            // each(function 다음으로 오는()에는 꼭 변수를 입력해줘야 함)
+                var bg_col = $(this).find("a").attr("bg");
+                $(this).find("a").css({"background":bg_col});
+            })// .menu li.each
+
+            $(".menu li a").css({"margin-left":"-85px"});
+
+            $(".menu li a").hover(function(){
+                $(this).stop().animate({"margin-left":"0","opacity":"1"}, 200)
+                // animate를 걸어주는 경우 스텍구조여서 stop을 걸어주지 않으면 
+                // 기능이 들어가는 만큼 결과가 계속 반복된다
+            }, function(){
+                $(this).stop().animate({"margin-left":"-70px","opacity":"0.5"}, 200)
+            })// .menu li.hover
+        })// jQuery 끝
+    </script>
+
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, li{
+            list-style: none;
+        }
+
+        .menu{}
+
+        .menu li{
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        
+        .menu li a{
+            display: block;
+            padding: 10px 0 10px 20px;
+            /* border: 1px solid red; */
+            border-radius: 0 20px 20px 0;
+            color: white;
+            width: 90px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu">
+        <li><a href="#" bg="red">menu1</a></li>
+        <li><a href="#" bg="yellow">menu2</a></li>
+        <li><a href="#" bg="blue">menu3</a></li>
+        <li><a href="#" bg="green">menu4</a></li>
+        <li><a href="#" bg="indigo">menu5</a></li>
+        <li><a href="#" bg="gray">menu6</a></li>
+        <li><a href="#" bg="purple">menu7</a></li>
+    </ul>
+</body>
+</html>

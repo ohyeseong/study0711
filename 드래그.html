@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+    <script lang="java">
+        $(document).ready(function(){
+            
+            var i = 1;
+            $(".test img").draggable({
+                containment:"parent"
+                // .draggable({제한범위})인데 containment:"parent"는 
+                // 부모안에서만 드래그 가능하게 하겠다는 것이다
+            })
+
+            // 마우스로 집어서 올리는 애가 맨 위로 올라가게(위에서 var i = 1로 먼저 선언)
+            .mousedown(function(){
+                $(this).css({"z-index": i++})
+            })
+        })// jQuery 끝
+    </script>
+
+    <style type="text/css">
+        .test{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <img src="source/normal_01.png" alt="n1">
+        <img src="source/normal_02.png" alt="n2">
+        <img src="source/normal_03.png" alt="n3">
+        <img src="source/normal_04.png" alt="n4">
+    </div>
+</body>
+</html>
